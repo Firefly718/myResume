@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;800&display=swap');
 
-@import 'normalize';
+@import 'normalize',
+        '_mixins';
 
 * {
     box-sizing: border-box;
@@ -13,11 +14,97 @@ html {
 
 body {
     min-height: 100%;
-    font: 1.5rem/1.6 'Open Sans', sans-serif;
+    font: 1.5rem/1.6 'Roboto Slab', serif;
 }
 
 .container {
     margin: 0 auto;
     max-width: 1140px;
     width: 96%;
+}
+// ------------------------------------------------MAIN
+.title {
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    // outline: 2px dashed green;
+}
+
+.main {
+    // outline: 2px solid green;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 4rem auto;
+    &__photo {
+        width: 200px;
+        border-radius: 50%;
+        border: 3px solid gray;
+    }
+    &__person {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        width: 60%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    &__name {
+        font-size: 3rem;
+    }
+    &__date {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    &__contacts {
+        padding-right: 2rem;
+        // outline: 2px dashed orange;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    &__phone {
+        &--link::before {
+            content: " Phone: ";
+            font-weight: 500;
+            font-size: 1.8rem;
+            color: #000;
+        }
+        &--link {
+            @include hover {
+                color: blue;
+            }
+        }
+    }
+    &__telegram {
+        &--link::before {
+            content: " Telegram: ";
+            font-weight: 500;
+            font-size: 1.8rem;
+            color: #000;
+        }
+        &--link {
+            @include hover {
+                color: blue;
+            }
+        }
+    }
+    &__email {
+        &--link::before {
+            content: " Email: ";
+            font-weight: 500;
+            font-size: 1.8rem;
+            color: #000;
+        }
+        &--link {
+            @include hover {
+                color: blue;
+            }
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: gray;
 }
